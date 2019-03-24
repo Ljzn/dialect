@@ -23,4 +23,21 @@ defmodule Dialect do
       end
     end
   end
+
+  @doc """
+  %{a: 1, b: 2} |> at(:a) -> 1
+  [:a, :b, :c] |> at(0) -> :a
+  """
+  def at(map, key) when is_map(map) do
+    Map.get(map, key)
+  end
+  def at(list, n) when is_list(list) and is_integer(n) do
+    Enum.at(list, n)
+  end
+
+  defmacro __using__(_) do
+    quote do
+      import Dialect, only: [at: 2]
+    end
+  end
 end
