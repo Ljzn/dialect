@@ -37,8 +37,8 @@ defmodule Dialect do
 
   defmacro __using__(_) do
     quote do
-      import Dialect, only: [at: 2]
-      import Enum, only: [map: 2, filter: 2, reduce: 3]
+      import Dialect, only: [at: 2, toml2valuefn: 2]
+      import Enum, only: [map: 2, filter: 2, reduce: 3, slice: 2, sort: 2, sort_by: 3, sum: 1, reverse: 1]
     end
   end
 end
